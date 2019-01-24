@@ -1,0 +1,9 @@
+<div class="book" *ngFor="let item of bookList; let i = index" (click)="postDetail(i)">
+<h3>{{item.Name}}</h3>
+<p>價格:{{item.Price}}</p>
+</div>
+<br/>
+Detail:
+<pre>
+  {{book | json}}
+</pre>

@@ -1,0 +1,8 @@
+.book {
+  background: gray;
+  color:white;
+  display:inline-block;
+  width:40%;
+  margin:5px;
+  text-align:center;
+}
