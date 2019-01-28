@@ -4,14 +4,13 @@ import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 //add
-import { HttpClientModule } from '@angular/common/http';
-import { BookComponent } from './book/book.component';
-import { BookService } from './book/book.service';
+import { BookModule } from './book/book.module';
+
+
 
 @NgModule({
-  imports:      [ BrowserModule, FormsModule, HttpClientModule/*add*/ ],
-  declarations: [ AppComponent, BookComponent/*add*/ ],
-  providers: [ BookService ],//add
+  imports:      [ BrowserModule, FormsModule, BookModule ],
+  declarations: [ AppComponent ],
   bootstrap:    [ AppComponent ]
 })
 export class AppModule { }
