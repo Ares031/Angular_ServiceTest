@@ -1,5 +1,11 @@
-<div class="book" *ngFor="let item of bookList; let i = index" (click)="postDetail(i)">
-  <book-header [title]="item.Name"></book-header>
+<div class="book" *ngFor="let item of bookList; let i = index" (click)="postDetail(i)" >
+
+<!--接收 [title] book-header的屬性需宣告@Input()才能接收父組件的資料 item.Name 是父組件傳給book-header的value -->
+<book-header [title]="item.Name" 
+  (topra)="tryChildValue($event)" ></book-header>
+<!-- ^^發射 (topra) book-header的屬性宣告@Output() book-header組件內有實作把topra參數 發送出來 -->
+<!-- 父組件實作tryChildValue($event)接收topra發射出來的$event=發送出來的value -->
+
   <book-info [info]="item"></book-info>
 </div>
 <br/>

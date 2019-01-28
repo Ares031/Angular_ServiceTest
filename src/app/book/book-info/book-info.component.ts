@@ -11,6 +11,7 @@ import { Component, OnInit, Input } from '@angular/core';
 export class BookInfoComponent implements OnInit  {
 
   constructor() {}
+  //接收父組件傳進來的value
   @Input()
   info;
 

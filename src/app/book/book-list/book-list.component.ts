@@ -19,6 +19,13 @@ export class BookListComponent implements OnInit  {
   }
   bookList;
   book;
+  
+  //實作接收子組件傳上來參數的method
+  tryChildValue(bookName) {
+    alert(`接收到的書名是:${bookName}`);
+    
+    this.bookList = this.bookList.filter(v=> v.Name !== bookName);
+  }
 
   getListData() {
     let errListData = new Array<BookModel>();
@@ -39,7 +46,7 @@ export class BookListComponent implements OnInit  {
 
   postDetail(id) {
     //假資料
-    let errData = new BookModel(id,`書名${id+1}`, id % 2 === 0 ? '前端': '後端',`${id}我是假資料`,id+1000);
+    let errData = new BookModel(id,`書名${id}`, id % 2 === 0 ? '前端': '後端',`${id}我是假資料`,id+100);
 
 
      let url = this.service.getUrl('GetBook');
