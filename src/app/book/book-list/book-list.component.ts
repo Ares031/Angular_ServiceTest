@@ -1,19 +1,23 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, HostBinding } from '@angular/core';
 import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
 import { BookService } from '../book.service';
 import { IBook } from '../IBook';
 import { BookModel } from '../BookModel';
+import { slideToRight } from '../../animation/router.anim';
 
 @Component({
   selector: 'book-list',
   templateUrl: './book-list.component.html',
-  styleUrls: [ './book-list.component.css' ]
+  styleUrls: [ './book-list.component.css' ],
+  animations: [ slideToRight ]
 })
 
 @Injectable()
 export class BookListComponent implements OnInit  {
-
-  constructor(private service: BookService) {}
+   @HostBinding('@routeAnim') state;
+   
+  constructor(private service: BookService, public router: Router) {}
   ngOnInit() {
     this.getListData();
   }
@@ -44,18 +48,8 @@ export class BookListComponent implements OnInit  {
     });
   }
 
-  postDetail(id) {
-    //假資料
-    let errData = new BookModel(id,`書名${id}`, id % 2 === 0 ? '前端': '後端',`${id}我是假資料`,id+100);
-
-
-     let url = this.service.getUrl('GetBook');
-     this.service.postObs(url,{params:{"id":id}})
-     .subscribe({
-      next: res => { this.book = res; },
-      error: err => { this.book = errData; },
-      complete: () => { console.log(this.book); }
-    });
+  goDetail(id) {
+    this.router.navigate(['/book', id]);
   }
 
 

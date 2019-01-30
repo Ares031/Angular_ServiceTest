@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'my-app',
@@ -10,6 +12,11 @@ import { Component } from '@angular/core';
 
 
 export class AppComponent  {
-  name = 'Angular';
   
+  constructor(public router: Router,private _location: Location) { }
+  name = 'Angular';
+  backPage() {
+    this._location.back();
+  }
+
 }

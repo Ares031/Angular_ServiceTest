@@ -1,5 +1,20 @@
 <ul>
-  <li><a routerLink="/books">Books</a></li>
-    <li><a routerLink="/test">Test</a></li>
+  <li><a routerLink="/books" routerLinkActive="active">Books</a></li>
+  <li><a routerLink="/test" routerLinkActive="active">Test</a></li>
+  <li><a routerLink="/animation" routerLinkActive="active">Animation</a></li>
+  <li><a routerLink="/abcdef" routerLinkActive="active">NotFind</a></li>
 </ul>
+<p>
+  <button (click)="backPage()">回上一頁</button>
+
+  <br/>
+  目前位置{{ router.url }} 
+  
+  <!-- 
+    屬性 routerLinkActive 判斷目前路由並添加指定className 如下 
+    sample:
+    routerLinkActive="active"
+   -->
+</p>
 <router-outlet></router-outlet>
+

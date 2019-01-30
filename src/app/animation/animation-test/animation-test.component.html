@@ -1,0 +1,5 @@
+<h2>Animation 好難>__<</h2>
+<button (click)="toggle()">觸發動畫</button>
+<div (click)="toggle()" [@openClose]="isOpen ? 'open' : 'closed'" class="open-close-container">
+  <p>The box is now {{ isOpen ? 'Open' : 'Closed' }}!</p>
+</div>
